@@ -5,13 +5,14 @@
         <item>
             <title>2.0</title>
             <pubDate>Thu, 31 Oct 2024 11:12:49 +0800</pubDate>
-            <sparkle:version>32</sparkle:version>
+            <sparkle:version>33</sparkle:version>
             <sparkle:shortVersionString>2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/TrialMacApp/TrialMacApp/releases/download/2.0-32/TrialMacAppGUI.tar" length="9326592" type="application/octet-stream" sparkle:edSignature="4ZIJJRFUbtNKqcGqqPcoxndAT38p75LZUIeATx2THauC2ir+CTrGaodhXFvKXQV6rnRp5NtwK7qOJWUcSIV3Cg=="/>
-        <description><![CDATA[<h2>2.0-32</h2>
+            <enclosure url="https://github.com/TrialAppleApp/trial-macOS-app/releases/download/2.0-33/TrialMacAppGUI.tar" length="9068032" type="application/octet-stream" sparkle:edSignature="9x1qZWqkRjm/6FoXOkkTMWx7P0NxtDN992KX3KutxkRNr8PXJa2lIQbo5zkIvsQbF0f9Tp84kfLeZlFYYqOWDQ=="/>
+        <description><![CDATA[<h2>2.0-33</h2>
 <ul>
-<li>Solve the problem that the password cannot be used because of special characters</li>
+<li>Change repository</li>
+<li>Optimize password box</li>
 </ul>]]></description></item>
         </channel>
 </rss>

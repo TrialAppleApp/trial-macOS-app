@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/TrialMacApp/TrialMacApp/refs/heads/master/appcast.xml</string>
+	<string>https://raw.githubusercontent.com/TrialAppleApp/trial-macOS-app/refs/heads/master/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>oTiGLXNfDHyP1UUuuupAmtn+9WpCF0nYoQdXOMzVVJY=</string>
 	<key>Supported Apps</key>

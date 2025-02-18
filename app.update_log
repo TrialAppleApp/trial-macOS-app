@@ -217,6 +217,15 @@
     </div>
 
     <div class="version-block">
+      <h2>2.0-33</h2>
+      <ul>
+        <li class="content-zh">更换储存库</li>
+        <li class="content-en">Change repository</li>
+        <li class="content-zh">优化密码框</li>
+        <li class="content-en">Optimize password box</li>
+      </ul>
+    </div>
+    <div class="version-block">
       <h2>2.0-32</h2>
       <ul>
         <li class="content-zh">处理因为密码有特殊字符导致无法使用的问题</li>
