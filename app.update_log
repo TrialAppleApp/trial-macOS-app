@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>更新日志</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        min-height: 100vh;
+        background: radial-gradient(
+            circle at 0% 0%,
+            rgba(52, 152, 219, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 100% 0%,
+            rgba(155, 89, 182, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 100% 100%,
+            rgba(52, 152, 219, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 0% 100%,
+            rgba(155, 89, 182, 0.1) 0%,
+            transparent 50%
+          ),
+          linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+      }
+
+      /* 添加动态背景元素 */
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: linear-gradient(
+          45deg,
+          rgba(52, 152, 219, 0.05),
+          rgba(155, 89, 182, 0.05)
+        );
+        animation: float 20s infinite linear;
+        z-index: -1;
+      }
+
+      body::before {
+        top: -150px;
+        left: -150px;
+      }
+
+      body::after {
+        bottom: -150px;
+        right: -150px;
+        animation-delay: -10s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: rotate(0deg) translate(0, 0);
+        }
+
+        50% {
+          transform: rotate(180deg) translate(50px, 50px);
+        }
+
+        100% {
+          transform: rotate(360deg) translate(0, 0);
+        }
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #eaeaea;
+      }
+
+      .header h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .version-block {
+        background: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+      }
+
+      .version-block:hover {
+        transform: translateY(-2px);
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 1.5rem;
+      }
+
+      li {
+        position: relative;
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+      }
+
+      li::before {
+        content: "•";
+        color: #3498db;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      .latest {
+        border-left: 4px solid #3498db;
+      }
+
+      h2 text {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .language-switch {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        /* 改为 left: 10px; 可以将按钮放到左上角 */
+        font-size: 14px;
+      }
+
+      .language-switch a {
+        text-decoration: none;
+        margin: 0 5px;
+        color: blue;
+      }
+
+      .language-switch a.active {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      /* 默认语言为英文 */
+      .content-en {
+        display: block;
+      }
+
+      .content-zh {
+        display: none;
+      }
+
+      /* 语言切换样式 */
+      #zh:target ~ .content-en,
+      #en:target ~ .content-zh {
+        display: none;
+      }
+
+      #zh:target ~ .content-zh,
+      #en:target ~ .content-en {
+        display: block;
+      }
+
+      /* 嵌套内容的语言切换 */
+      #zh:target ~ .version-block .content-en,
+      #en:target ~ .version-block .content-zh {
+        display: none;
+      }
+
+      #zh:target ~ .version-block .content-zh,
+      #en:target ~ .version-block .content-en {
+        display: block;
+      }
+
+      #zh:target ~ .header .content-en,
+      #en:target ~ .header .content-zh {
+        display: none;
+      }
+
+      #zh:target ~ .header .content-zh,
+      #en:target ~ .header .content-en {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="en"></div>
+    <div id="zh"></div>
+    <div class="language-switch">
+      <a href="#en">English</a> |
+      <a href="#zh">中文</a>
+    </div>
+
+    <div class="header">
+      <h1 class="content-en">Update Log</h1>
+      <h1 class="content-zh">更新日志</h1>
+    </div>
+
+    <div class="version-block">
+      <h2>2.0-32</h2>
+      <ul>
+        <li class="content-zh">处理因为密码有特殊字符导致无法使用的问题</li>
+        <li class="content-en">Solve the problem that the password cannot be used because of special characters</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>2.0-31</h2>
+      <ul>
+        <li class="content-zh">减小二进制体积</li>
+        <li class="content-en">Reduce binary size</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>2.0-30</h2>
+      <ul>
+        <li class="content-zh">优化结构</li>
+        <li class="content-en">Optimize structure</li>
+        <li class="content-zh">拆分注入库</li>
+        <li class="content-en">Split injection library</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-29</h2>
+      <ul>
+        <li class="content-zh">修正Navicat钥匙串 重要修复请更新</li>
+        <li class="content-en">Fixed Navicat keychain Important fixes please update</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-28</h2>
+      <ul>
+        <li class="content-zh">修正密码输入框</li>
+        <li class="content-en">Fixed the password input field</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-27</h2>
+      <ul>
+        <li class="content-zh">支持 Canary Mail</li>
+        <li class="content-en">Support Canary Mail</li>
+        <li class="content-zh">支持 Airmail</li>
+        <li class="content-en">Support Airmail</li>
+        <li class="content-zh">加快软件启动速度</li>
+        <li class="content-en">Speed ​​up software startup</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-26</h2>
+      <ul>
+        <li class="content-zh">支持 Photos Workbench</li>
+        <li class="content-en">Support Photos Workbench</li>
+        <li class="content-zh">支持 Tembo</li>
+        <li class="content-en">Support Tembo</li>
+        <li class="content-zh">支持 HoudahGeo</li>
+        <li class="content-en">Support HoudahGeo</li>
+        <li class="content-zh">修正 HoudahSpot 使用天数</li>
+        <li class="content-en">Fixed HoudahSpot usage days</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-25</h2>
+      <ul>
+        <li class="content-zh">优化app读取逻辑</li>
+        <li class="content-en">Optimize app read logic</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-24</h2>
+      <ul>
+        <li class="content-zh">支持修改保存密码的方式</li>
+        <li class="content-en">The password saving mode can be changed</li>
+        <li class="content-zh">添加初始化错误提醒</li>
+        <li class="content-en">Added initialization error alert</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-23</h2>
+      <ul>
+        <li class="content-zh">支持PDF Expert</li>
+        <li class="content-en">Support PDF Expert</li>
+        <li class="content-zh">处理Querious错误</li>
+        <li class="content-en">Handling Querious errors</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-22</h2>
+      <ul>
+        <li class="content-zh">支持Paste最新版</li>
+        <li class="content-en">Supports the latest Paste version</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-21</h2>
+      <ul>
+        <li class="content-zh">添加筛选按钮，快捷展示支持的APP</li>
+        <li class="content-en">Add a filter button to quickly display supported apps</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-20</h2>
+      <ul>
+        <li class="content-zh">支持Microsoft Excel</li>
+        <li class="content-en">Support Microsoft Excel</li>
+        <li class="content-zh">支持Microsoft PowerPoint</li>
+        <li class="content-en">Support Microsoft PowerPoint</li>
+        <li class="content-zh">支持Microsoft Word</li>
+        <li class="content-en">Support Microsoft Word</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-19</h2>
+      <ul>
+        <li class="content-en">View historical updates</li>
+        <li class="content-zh">查看历史更新记录</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-18</h2>
+      <ul>
+        <li class="content-en">Add configuration files</li>
+        <li class="content-zh">添加配置文件</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-17</h2>
+      <ul>
+        <li class="content-en">Update injection library</li>
+        <li class="content-zh">更新注入库</li>
+        <li class="content-en">Support iStatistica Pro</li>
+        <li class="content-zh">支持iStatistica Pro</li>
+        <li class="content-en">Support iReal Pro</li>
+        <li class="content-zh">支持iReal Pro</li>
+        <li class="content-en">Support Mission Control Plus</li>
+        <li class="content-zh">支持Mission Control Plus</li>
+        <li class="content-en">Support Tubbie</li>
+        <li class="content-zh">支持Tubbie</li>
+        <li class="content-en">Support Batteries</li>
+        <li class="content-zh">支持Batteries</li>
+        <li class="content-en">Support One Switch</li>
+        <li class="content-zh">支持One Switch</li>
+        <li class="content-en">Support Moment</li>
+        <li class="content-zh">支持Moment</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-16</h2>
+      <ul>
+        <li class="content-en">Fix password window UI issues</li>
+        <li class="content-zh">更改密码窗口UI问题</li>
+        <li class="content-en">Optimize code</li>
+        <li class="content-zh">优化代码</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-15</h2>
+      <ul>
+        <li class="content-en">Completely rewrite UI</li>
+        <li class="content-zh">整体重写UI</li>
+        <li class="content-en">Remove first launch popup</li>
+        <li class="content-zh">去除程序首次打开弹窗</li>
+        <li class="content-en">Optimize user experience</li>
+        <li class="content-zh">优化体验</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-14</h2>
+      <ul>
+        <li class="content-en">Add Aldente Pro activation code</li>
+        <li class="content-zh">添加 Aldente Pro 激活码</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-13</h2>
+      <ul>
+        <li class="content-en">Full version of Aldente Pro</li>
+        <li class="content-zh">Aldente Pro全版本</li>
+        <li class="content-en">Optimize password box style</li>
+        <li class="content-zh">优化密码框样式</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-12</h2>
+      <ul>
+        <li class="content-en">Update App Cleaner & Uninstaller to 8.4.3</li>
+        <li class="content-zh">App Cleaner & Uninstaller 8.4.3更新</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-11</h2>
+      <ul>
+        <li class="content-en">Fix button bug</li>
+        <li class="content-zh">修复按钮bug</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-10</h2>
+      <ul>
+        <li class="content-en">Major UI changes</li>
+        <li class="content-zh">UI大改动</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-9</h2>
+      <ul>
+        <li class="content-en">Add MarginNote 3</li>
+        <li class="content-zh">添加 MarginNote 3</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-8</h2>
+      <ul>
+        <li class="content-en">Add update log viewing</li>
+        <li class="content-zh">添加更新日志查看</li>
+        <li class="content-en">Add MarginNote 4</li>
+        <li class="content-zh">添加 MarginNote 4</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-7</h2>
+      <ul>
+        <li class="content-en">Change initialization</li>
+        <li class="content-zh">更改初始化</li>
+        <li class="content-en">Change activation process</li>
+        <li class="content-zh">更改激活流程</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-6</h2>
+      <ul>
+        <li class="content-en">Change initialization</li>
+        <li class="content-zh">更改初始化</li>
+        <li class="content-en">Modify settings content</li>
+        <li class="content-zh">设置内容变更</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-5</h2>
+      <ul>
+        <li class="content-en">Update file integration</li>
+        <li class="content-zh">更新文件集成</li>
+        <li class="content-en">Add update log</li>
+        <li class="content-zh">添加更新日志</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2-4</h2>
+      <ul>
+        <li class="content-en">Update XML</li>
+        <li class="content-zh">更新xml</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.2</h2>
+      <ul>
+        <li class="content-en">Support x86</li>
+        <li class="content-zh">支持x86</li>
+        <li class="content-en">Add update log</li>
+        <li class="content-zh">添加更新日志</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.1</h2>
+      <ul>
+        <li class="content-en">Add app auto-update</li>
+        <li class="content-zh">添加app自动更新</li>
+      </ul>
+    </div>
+    <div class="version-block">
+      <h2>1.0</h2>
+      <ul>
+        <li class="content-en">Initial release</li>
+        <li class="content-zh">新版发布</li>
+      </ul>
+    </div>
+  </body>
+</html>

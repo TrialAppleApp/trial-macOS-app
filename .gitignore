@@ -1,0 +1,11 @@
+.DS_Store
+/script/*
+.venv
+/DerivedData
+app.json
+/build
+
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
