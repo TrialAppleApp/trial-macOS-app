@@ -1,6 +1,6 @@
 # Aldente Pro
 
-1. [download](https://github.com/TrialAppleApp/trial-macOS-app/releases/tag/aldente)
+1. [download](https://github.com/TrialMacApp/TrialMacApp/releases/tag/aldente)
 2. open the app Installation helper
 3. Use the TrialMacAppGUI to perform the injection
 4. Enter the activation code displayed in the TrialMacAppGUI in aldente
